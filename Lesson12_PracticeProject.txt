@@ -1,0 +1,71 @@
+---1.) Develop tables for products, customers, and sales with specific field
+---1.a)
+CREATE TABLE Products (
+    product_code TEXT PRIMARY KEY,
+    product_name TEXT NOT NULL,
+    price REAL,
+    stock INTEGER,
+    category TEXT
+);
+---1.b)
+CREATE TABLE Customers (
+    customer_id INTEGER PRIMARY KEY,
+    customer_name TEXT NOT NULL,
+    customer_location TEXT,
+    customer_phone_number TEXT
+);
+---1.c)
+CREATE TABLE Sales (
+    sale_date TEXT,
+    order_number INTEGER PRIMARY KEY,
+    product_code TEXT,
+    product_name TEXT,
+    quantity INTEGER,
+    price REAL
+);
+
+---2.) Write a query to insert values into at least 1 of the 3 customer, product, and sales tables.
+INSERT INTO Customers (
+    customer_id,
+    customer_name,
+    customer_location,
+    customer_phone_number
+)
+VALUES
+(1111, 'Nisha', 'kerala', '8392320'),
+(1212, 'Oliver', 'kerala', '4353891'),
+(1216, 'Vignesh', 'chennai', '1111212'),
+(1246, 'Shiny', 'maharastra', '5454543'),
+(1910, 'Mohan', 'mumbai', '9023941'),
+(2123, 'Biyush', 'bombay', '1253358'),
+(3452, 'Alexander', 'west bengal', '1212134'),
+(3921, 'Mukesh', 'manipur', '4232321'),
+(5334, 'Christy', 'pakistan', '2311111'),
+(9021, 'Rithika', 'kashmir', '1121344'),
+(9212, 'Jessica', 'banglore', '1233435'),
+(9875, 'Stephen', 'chenai', '1212133')
+;
+
+---3.) Execute various queries to display specific data from these tables
+---3.a) Write a query to display the order ID, customer ID, order date, price, and quantity columns of the sales table
+SELECT 
+	order_no,
+	c_id, 
+	order_date, 
+	price,
+	qty 
+FROM Sales;
+
+---3.b) Write a query to show details from the product table where the category is stationary
+SELECT * 
+FROM Products 
+WHERE category = 'Stationary';
+
+---3.c) 
+SELECT DISTINCT category 
+from products;
+
+---3.d) 
+SELECT * 
+FROM Products 
+ORDER BY price DESC;
